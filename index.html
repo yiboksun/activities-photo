@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Global Leadership Project</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'맑은 고딕',sans-serif;
+    background:#f5f7fa;
+}
+
+header{
+    text-align:center;
+    padding:40px;
+    background:#0d47a1;
+    color:white;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    padding:20px;
+}
+
+nav button{
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#pageTitle{
+    text-align:center;
+    margin:20px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.slider{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+.slide-content{
+    width:700px;
+    text-align:center;
+}
+
+.slide-content img{
+    width:100%;
+    border-radius:15px;
+}
+
+*{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family:'맑은 고딕',sans-serif;
+        background:#f5f7fa;
+    }
+
+    header{
+        text-align:center;
+        padding:40px;
+        background:#0d47a1;
+        color:white;
+    }
+    
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Global Leadership Project</h1>
+    <p>미국에서의 7일</p>
+</header>
+
+<nav id="menu"></nav>
+
+<section id="pageTitle"></section>
+
+<div class="slider">
+
+    <button onclick="prevSlide()">◀</button>
+
+    <div class="slide-content">
+        <img id="slideImage">
+        <p id="slideText"></p>
+    </div>
+
+    <button onclick="nextSlide()">▶</button>
+
+</div>
+
+<script>
+
+const pages = {
+
+    "사전 교육":[
+        {
+            image:"images/pre1.jpg",
+            text:"프로젝트 소개 및 사전 교육"
+        }
+    ],
+
+    "1일차":[
+        {
+            image:"images/day1_1.jpg",
+            text:"공항 출발"
+        },
+        {
+            image:"images/day1_2.jpg",
+            text:"현지 문화 체험"
+        }
+    ],
+
+    "2일차":[
+        {
+            image:"images/day2_1.jpg",
+            text:"기업 방문"
+        }
+    ],
+
+    "3일차":[
+        {
+            image:"images/day3_1.jpg",
+            text:"대학교 탐방"
+        }
+    ],
+
+    "4일차":[
+        {
+            image:"images/day4_1.jpg",
+            text:"팀 프로젝트"
+        }
+    ],
+
+    "5일차":[
+        {
+            image:"images/day5_1.jpg",
+            text:"현지 학생 교류"
+        }
+    ],
+
+    "6일차":[
+        {
+            image:"images/day6_1.jpg",
+            text:"문화 체험"
+        }
+    ],
+
+    "7일차":[
+        {
+            image:"images/day7_1.jpg",
+            text:"귀국 준비"
+        }
+    ],
+
+    "성과 및 느낀점":[
+        {
+            image:"images/result.jpg",
+            text:"프로젝트를 통해 글로벌 역량을 키울 수 있었다."
+        }
+    ]
+};
+
+let currentPage = "사전 교육";
+let currentSlide = 0;
+
+const menu = document.getElementById("menu");
+
+Object.keys(pages).forEach(page=>{
+
+    const btn = document.createElement("button");
+
+    btn.innerText = page;
+
+    btn.onclick = ()=>{
+        currentPage = page;
+        currentSlide = 0;
+        updateView();
+    };
+
+    menu.appendChild(btn);
+});
+
+function updateView(){
+
+    document.getElementById("pageTitle").innerText = currentPage;
+
+    const data = pages[currentPage][currentSlide];
+
+    document.getElementById("slideImage").src = data.image;
+    document.getElementById("slideText").innerText = data.text;
+}
+
+function nextSlide(){
+
+    currentSlide++;
+
+    if(currentSlide >= pages[currentPage].length){
+        currentSlide = 0;
+    }
+
+    updateView();
+}
+
+function prevSlide(){
+
+    currentSlide--;
+
+    if(currentSlide < 0){
+        currentSlide = pages[currentPage].length - 1;
+    }
+
+    updateView();
+}
+
+updateView();
+
+</script>
+
+</body>
+</html>
