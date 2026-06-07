@@ -3,249 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Global Leadership Journal</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Global Leadership Diary</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-background:#efe6d7;
-font-family:'Pretendard',sans-serif;
-color:#4a3728;
-overflow-x:hidden;
+    background:#f7f1e7;
+    font-family:'Noto Sans KR',sans-serif;
+    color:#4e3b2a;
 }
 
-/* 배경 종이 느낌 */
-body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-background:url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-opacity:0.35;
-z-index:-1;
+header{
+    text-align:center;
+    padding:40px 20px;
 }
 
-/* 메인 */
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:60px 20px;
+header h1{
+    font-family:'Nanum Pen Script',cursive;
+    font-size:60px;
 }
 
-/* 날짜 */
+header p{
+    margin-top:10px;
+    color:#7a6651;
+}
+
+.menu{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.menu button{
+    border:none;
+    background:#d8c3a5;
+    color:#4e3b2a;
+    padding:10px 18px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.menu button:hover{
+    transform:translateY(-2px);
+}
+
+.diary{
+    max-width:1000px;
+    margin:auto;
+    background:#fffdf8;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
 
 .date{
-font-family:'Marcellus',serif;
-font-size:4rem;
-letter-spacing:4px;
-margin-bottom:10px;
+    text-align:center;
+    font-size:38px;
+    letter-spacing:5px;
+    margin-bottom:40px;
+    font-family:'Nanum Pen Script',cursive;
 }
 
-.day{
-font-size:1rem;
-letter-spacing:5px;
-margin-bottom:50px;
-opacity:.7;
+.photo-area{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
 }
 
-/* 다꾸 종이 */
-
-.paper{
-background:#f8f2e8;
-padding:40px;
-position:relative;
-box-shadow:
-0 8px 20px rgba(0,0,0,.08);
+.photo-card{
+    position:relative;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    transform:rotate(-2deg);
 }
 
-/* 마스킹 테이프 */
+.photo-card img{
+    width:600px;
+    height:400px;
+    object-fit:cover;
+    display:block;
+    border-radius:5px;
+}
 
 .tape{
-width:140px;
-height:35px;
-background:rgba(214,193,158,.6);
-position:absolute;
-top:-15px;
-left:50%;
-transform:translateX(-50%) rotate(-3deg);
-backdrop-filter:blur(2px);
-box-shadow:0 2px 4px rgba(0,0,0,.08);
+    position:absolute;
+    width:140px;
+    height:35px;
+    background:#b89567;
+    opacity:0.7;
+    top:-15px;
+    left:50%;
+    transform:translateX(-50%) rotate(-3deg);
 }
 
-/* 사진 영역 */
-
-.photo-wrap{
-position:relative;
-margin-bottom:70px;
+.arrow{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:none;
+    background:#d8c3a5;
+    font-size:24px;
+    cursor:pointer;
 }
 
-.main-photo{
-width:70%;
-display:block;
-border:12px solid white;
-box-shadow:0 8px 15px rgba(0,0,0,.12);
+.location{
+    text-align:center;
+    margin-top:25px;
+    font-size:20px;
 }
 
-.sub-photo{
-position:absolute;
-width:240px;
-right:0;
-bottom:-50px;
-border:10px solid white;
-transform:rotate(6deg);
-box-shadow:0 8px 15px rgba(0,0,0,.12);
+.content{
+    margin-top:30px;
+    line-height:1.8;
+    text-align:center;
 }
 
-/* 제목 */
-
-.section-title{
-font-family:'Marcellus',serif;
-font-size:2rem;
-margin-bottom:20px;
+.stickers{
+    text-align:center;
+    font-size:30px;
+    margin-top:25px;
 }
 
-/* 내용 */
-
-.story{
-line-height:2;
-font-size:1rem;
-margin-bottom:50px;
-}
-
-/* 스티커 느낌 */
-
-.sticker{
-display:inline-block;
-padding:10px 20px;
-background:#d7c2a3;
-border-radius:30px;
-margin-right:10px;
-font-size:.9rem;
-transform:rotate(-4deg);
-}
-
-/* 메모 카드 */
-
-.note{
-margin-top:40px;
-background:#f3eadc;
-padding:25px;
-border-left:5px solid #b4946d;
-line-height:1.9;
-}
-
-/* 이동 버튼 */
-
-.nav{
-margin-top:60px;
-display:flex;
-justify-content:space-between;
-}
-
-.nav a{
-text-decoration:none;
-color:#4a3728;
-font-size:1.1rem;
-transition:.3s;
-}
-
-.nav a:hover{
-transform:translateY(-3px);
-}
-
-@media(max-width:768px){
-
-.date{
-font-size:2.5rem;
-}
-
-.main-photo{
-width:100%;
-}
-
-.sub-photo{
-position:relative;
-width:70%;
-margin-top:20px;
-right:auto;
-bottom:auto;
-}
-
-.paper{
-padding:25px;
-}
-
+.page-indicator{
+    text-align:center;
+    margin-top:30px;
+    font-size:24px;
+    color:#8b7355;
 }
 
 </style>
 </head>
+
 <body>
 
-<div class="container">
+<header>
+    <h1>Global Leadership Diary</h1>
+    <p>2026.07.21 ~ 2026.07.28</p>
+</header>
 
-<div class="date">21 JUL 2026</div>
-<div class="day">DAY 1</div>
-
-<div class="paper">
-
-<div class="tape"></div>
-
-<div class="photo-wrap">
-
-<img
-class="main-photo"
-src="https://images.unsplash.com/photo-1527631746610-bca00a040d60"
->
-
-<img
-class="sub-photo"
-src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
->
-
+<div class="menu">
+    <button>사전교육</button>
+    <button>7/21</button>
+    <button>7/22</button>
+    <button>7/23</button>
+    <button>7/24</button>
+    <button>7/25</button>
+    <button>7/26</button>
+    <button>7/27</button>
+    <button>7/28</button>
 </div>
 
-<h2 class="section-title">Today Story</h2>
+<div class="diary">
 
-<p class="story">
-글로벌 리더십 프로그램 첫날.
-현지 학생들과 처음 만나며 서로의 문화를 소개하는 시간을 가졌다.
-처음에는 긴장했지만 함께 활동하면서 자연스럽게 친해질 수 있었다.
-</p>
+    <div class="date">
+        2026 / 07 / 21
+    </div>
 
-<div>
+    <div class="photo-area">
 
-<span class="sticker">#Leadership</span>
-<span class="sticker">#Global</span>
-<span class="sticker">#Singapore</span>
+        <button class="arrow">◀</button>
 
-</div>
+        <div class="photo-card">
 
-<div class="note">
+            <div class="tape"></div>
 
-<b>Reflection</b><br><br>
+            <img src="https://picsum.photos/800/500">
 
-다른 나라 학생들과 소통하면서 영어 실력보다
-적극적으로 대화하려는 태도가 더 중요하다는 것을 느꼈다.
+        </div>
 
-</div>
+        <button class="arrow">▶</button>
 
-<div class="nav">
+    </div>
 
-<a href="#">← Previous Day</a>
-<a href="#">Next Day →</a>
+    <div class="location">
+        📍 Singapore
+    </div>
 
-</div>
+    <div class="content">
 
-</div>
+        <h2>Day 1</h2>
+
+        <br>
+
+        처음으로 해외에 도착했다.<br>
+        새로운 환경을 직접 경험하며<br>
+        글로벌 리더십 프로젝트의 시작을 실감할 수 있었다.
+
+    </div>
+
+    <div class="stickers">
+        ✈️ 📸 ☁️ 🌎
+    </div>
+
+    <div class="page-indicator">
+        ● ○ ○ ○ ○
+    </div>
 
 </div>
 
