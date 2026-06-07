@@ -82,64 +82,12 @@ header p{
     gap:30px;
 }
 
-.photo-card{
-    position:relative;
-    background:#d6bf9b;
-    width:650px;
-    height:430px;
-    border:1px solid rgba(0,0,0,0.08);
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,0.08);
-
-    overflow:visible;
-
-    transform:rotate(-2deg);
-}
-
 .photo-card img{
     width:600px;
     height:400px;
     object-fit:cover;
     display:block;
     border-radius:5px;
-}
-
-.tape{
-    position:absolute;
-    top:-18px;
-    left:50%;
-
-    width:180px;
-    height:42px;
-
-    transform:
-    translateX(-50%)
-    rotate(-5deg);
-
-    background:
-    rgba(220,205,175,.75);
-
-    border-left:
-    1px solid rgba(255,255,255,.4);
-
-    border-right:
-    1px solid rgba(255,255,255,.4);
-
-    backdrop-filter:blur(1px);
-
-    box-shadow:
-    0 2px 5px rgba(0,0,0,.08);
-}
-
-.arrow{
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    border:none;
-    background:#f3eadb;
-    font-size:24px;
-    cursor:pointer;
 }
 
 .location{
@@ -149,28 +97,16 @@ header p{
 }
 
 .content{
-    background-image: url("100.JPG");
-    background-size: cover;
-    background-position: center;
+    width:700px;
+    margin:40px auto;
 
-    padding: 50px 70px;
-    border-radius: 10px;
-}
+    background-image:url("100.JPG");
+    background-size:100% 100%;
+    background-repeat:no-repeat;
 
-.notebook-paper{
-    width: 100%;
-    display: block;
-    border-radius: 10px;
-}
+    padding:80px 90px;
 
-.content-text{
-    position: absolute;
-    top: 40px;
-    left: 70px;
-    right: 40px;
-
-    color: #333;
-    line-height: 2;
+    min-height:600px;
 }
 
 .stickers{
@@ -184,23 +120,6 @@ header p{
     margin-top:30px;
     font-size:24px;
     color:#8b7355;
-}
-
-.diary::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-    repeating-linear-gradient(
-        to bottom,
-        transparent 0px,
-        transparent 38px,
-        rgba(0,0,0,0.08) 39px,
-        transparent 40px
-    );
-
-    pointer-events:none;
 }
 
 .photo-placeholder{
@@ -254,39 +173,21 @@ header p{
         2026 / 07 / 21
     </div>
 
-    <div class="photo-area">
-
-        <button class="arrow">◀</button>
-
-        <div class="photo-card">
-
-            <div class="tape"></div>
-
-            <div class="photo-placeholder"></div>
-</div>
-
-        </div>
-
-        <button class="arrow">▶</button>
-
-    </div>
-
     <div class="location">
         United States of America
     </div>
 
     <div class="content">
-    <img src="100.JPG" class="notebook-paper">
 
-    <div class="content-text">
-        <h2>Day 1</h2>
-        <p>
+    <h2>Day 1</h2>
 
+    <p>
         처음으로 해외에 도착했다.<br>
         새로운 환경을 직접 경험하며<br>
         글로벌 리더십 프로젝트의 시작을 실감할 수 있었다.
+    </p>
 
-    </div>
+</div>
 
 
     <div class="page-indicator">
