@@ -91,7 +91,7 @@ header p{
     gap:30px;
 }
 
-photo-card{
+.photo-card{
     background:transparent;
     box-shadow:none;
 }
@@ -149,77 +149,73 @@ photo-card{
     color:#8b7355;
 }
 
-.diary{
-    max-width:1000px;
-    margin:auto;
-
-    background:rgba(255,253,248,0.9);
-
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
 .page-indicator{
     display:none;
 }
 
 @media (max-width:768px){
 
+    header{
+        padding:20px 10px;
+    }
+
+    header h1{
+        font-size:36px;
+    }
+
+    .menu{
+        padding:0 10px;
+    }
+
     .diary{
         width:100%;
-        margin:0 auto;
         padding:10px;
-        text-align:center;
-    }
-
-    .photo-section{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-    }
-
-    .content-section{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-    }
-
-    .content{
-        text-align:center;
         margin:0 auto;
+    }
+
+    .date{
+        text-align:center;
+        font-size:28px;
+        letter-spacing:2px;
+    }
+
+    .photo-area{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:10px;
         width:100%;
     }
 
-    .content h2{
-        text-align:center;
+    .photo-card{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+    }
+
+    .photo-card img{
+        display:block;
+        margin:auto;
+        max-width:220px;
+        width:100%;
+        height:auto;
     }
 
     .location{
         text-align:center;
     }
 
-    .date{
+    .content{
         text-align:center;
+        width:100%;
+        margin:20px auto 0;
+        font-size:22px;
     }
 
-    .photo-card{
-        margin:0 auto;
-    }
-
-    .photo-card img{
-        display:block;
-        margin:0 auto;
-        max-width:90%;
-        height:auto;
-    }
-
-    .nav-buttons{
-        justify-content:center;
+    .content h2{
+        text-align:center;
+        margin-bottom:10px;
     }
 }
 
