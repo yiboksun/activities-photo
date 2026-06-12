@@ -196,13 +196,15 @@ header p{
 
    <div class="content" id="content"></div>
 
+   <div class="page-indicator" id="pageIndicator"></div>
+
 </div>
 <script>
 
 const diaryData = {
 
 pre:{
-date:"유한공업고등학교",
+date:"[유한공업고등학교]",
 location:"  ",
 
 photos:[
@@ -356,6 +358,20 @@ document.getElementById("content").innerHTML =
 <br>
 ${photo.text}
 `;
+
+let dots = "";
+
+for(let i = 0; i < data.photos.length; i++){
+
+    if(i === currentPhoto){
+        dots += "● ";
+    }else{
+        dots += "○ ";
+    }
+
+}
+
+document.getElementById("pageIndicator").innerHTML = dots;
 
 }
 
