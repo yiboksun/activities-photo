@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Global Leadership Diary</title>
+<title>Global Leadership Project</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
@@ -91,13 +91,9 @@ header p{
     gap:30px;
 }
 
-.photo-card{
-    position:relative;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.12);
-    transform:rotate(-2deg);
+photo-card{
+    background:transparent;
+    box-shadow:none;
 }
 
 .photo-card img{
@@ -166,6 +162,65 @@ header p{
 
 .page-indicator{
     display:none;
+}
+
+@media (max-width:768px){
+
+    .diary{
+        width:100%;
+        margin:0 auto;
+        padding:10px;
+        text-align:center;
+    }
+
+    .photo-section{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+    }
+
+    .content-section{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+    }
+
+    .content{
+        text-align:center;
+        margin:0 auto;
+        width:100%;
+    }
+
+    .content h2{
+        text-align:center;
+    }
+
+    .location{
+        text-align:center;
+    }
+
+    .date{
+        text-align:center;
+    }
+
+    .photo-card{
+        margin:0 auto;
+    }
+
+    .photo-card img{
+        display:block;
+        margin:0 auto;
+        max-width:90%;
+        height:auto;
+    }
+
+    .nav-buttons{
+        justify-content:center;
+    }
 }
 
 </style>
