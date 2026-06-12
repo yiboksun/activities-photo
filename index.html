@@ -199,13 +199,46 @@ header p{
 const diaryData = {
 
 pre:{
-date:"PRE-EDUCATION",
-location:"📍 Korea",
-title:"사전교육",
-text:"글로벌 리더십 프로그램 참여 전 사전교육을 진행하였다.",
+location:"유한공업고등학교",
+
 photos:[
-"1.jpg",
-"2.jpg"
+
+{
+image:"1.jpg",
+title:"회화교육",
+text:"6월 1일"
+},
+
+{
+image:"2.jpg",
+title:"회화교육",
+text:"6월 1일"
+},
+
+{
+image:"3.jpg",
+title:"회화교육",
+text:"6월 1일"
+},
+
+{
+image:"4.jpg",
+title:"회화교육",
+text:"6월 1일"
+},
+
+{
+image:"5.jpg",
+title:"회화교육",
+text:"6월 1일"
+},
+
+{
+image:"6.jpg",
+title:"회화교육",
+text:"6월 1일"
+}
+
 ]
 },
 
@@ -294,12 +327,15 @@ photos:[
 
 };
 
-let currentDay = "day1";
+let currentDay = "pre";
 let currentPhoto = 0;
 
 function render(){
 
 const data = diaryData[currentDay];
+
+const photo =
+data.photos[currentPhoto];
 
 document.getElementById("date").innerText =
 data.date;
@@ -308,13 +344,13 @@ document.getElementById("location").innerText =
 data.location;
 
 document.getElementById("mainPhoto").src =
-data.photos[currentPhoto];
+photo.image;
 
 document.getElementById("content").innerHTML =
 `
-<h2>${data.title}</h2>
+<h2>${photo.title}</h2>
 <br>
-${data.text}
+${photo.text}
 `;
 
 }
