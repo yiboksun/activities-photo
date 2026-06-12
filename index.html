@@ -155,66 +155,208 @@ header p{
 </header>
 
 <div class="menu">
-    <button>사전교육</button>
-    <button>7/21</button>
-    <button>7/22</button>
-    <button>7/23</button>
-    <button>7/24</button>
-    <button>7/25</button>
-    <button>7/26</button>
-    <button>7/27</button>
-    <button>7/28</button>
+
+<button onclick="changeDay('pre')">사전교육</button>
+
+<button onclick="changeDay('day1')">7/21</button>
+<button onclick="changeDay('day2')">7/22</button>
+<button onclick="changeDay('day3')">7/23</button>
+<button onclick="changeDay('day4')">7/24</button>
+<button onclick="changeDay('day5')">7/25</button>
+<button onclick="changeDay('day6')">7/26</button>
+<button onclick="changeDay('day7')">7/27</button>
+<button onclick="changeDay('day8')">7/28</button>
+
 </div>
 
 <div class="diary">
 
-    <div class="date">
-        2026 / 07 / 21
-    </div>
+    <div class="date" id="date"></div>
 
     <div class="photo-area">
 
-        <button class="arrow">◀</button>
+        <button class="arrow" onclick="prevPhoto()">◀</button>
 
         <div class="photo-card">
 
             <div class="tape"></div>
 
-            <img src="1.jpg" alt="Photo 1">
+            <img id="mainPhoto" src="" alt="Photo">
 
         </div>
 
-        <button class="arrow">▶</button>
+        <button class="arrow" onclick="nextPhoto()">▶</button>
 
     </div>
 
-    <div class="location">
-        📍 Singapore
-    </div>
+   <div class="location" id="location"></div>>
 
-    <div class="content">
-
-        <h2>Day 1</h2>
-
-        <br>
-
-        처음으로 해외에 도착했다.<br>
-        새로운 환경을 직접 경험하며<br>
-        글로벌 리더십 프로젝트의 시작을 실감할 수 있었다.
-
-    </div>
-
-    <div class="stickers">
-        ✈️ 📸 ☁️ 🌎
-    </div>
-
-    <div class="page-indicator">
-        ● ○ ○ ○ ○
-    </div>
+   <div class="content" id="content"></div>
 
 </div>
-<div style="border:5px solid red;">
-    <img src="1.jpg" style="width:300px;">
-</div>
+<script>
+
+const diaryData = {
+
+pre:{
+date:"PRE-EDUCATION",
+location:"📍 Korea",
+title:"사전교육",
+text:"글로벌 리더십 프로그램 참여 전 사전교육을 진행하였다.",
+photos:[
+"1.jpg",
+"2.jpg"
+]
+},
+
+day1:{
+date:"2026 / 07 / 21",
+location:"📍 Singapore",
+title:"Day 1",
+text:"처음으로 해외에 도착했다. 새로운 환경을 직접 경험하며 글로벌 리더십 프로젝트의 시작을 실감할 수 있었다.",
+photos:[
+"day1_1.jpg",
+"day1_2.jpg",
+"day1_3.jpg"
+]
+},
+
+day2:{
+date:"2026 / 07 / 22",
+location:"📍 Singapore",
+title:"Day 2",
+text:"2일차 내용을 작성하세요.",
+photos:[
+"day2_1.jpg",
+"day2_2.jpg"
+]
+},
+
+day3:{
+date:"2026 / 07 / 23",
+location:"📍 Singapore",
+title:"Day 3",
+text:"3일차 내용을 작성하세요.",
+photos:[
+"day3_1.jpg"
+]
+},
+
+day4:{
+date:"2026 / 07 / 24",
+location:"📍 Singapore",
+title:"Day 4",
+text:"4일차 내용을 작성하세요.",
+photos:[
+"day4_1.jpg"
+]
+},
+
+day5:{
+date:"2026 / 07 / 25",
+location:"📍 Singapore",
+title:"Day 5",
+text:"5일차 내용을 작성하세요.",
+photos:[
+"day5_1.jpg"
+]
+},
+
+day6:{
+date:"2026 / 07 / 26",
+location:"📍 Singapore",
+title:"Day 6",
+text:"6일차 내용을 작성하세요.",
+photos:[
+"day6_1.jpg"
+]
+},
+
+day7:{
+date:"2026 / 07 / 27",
+location:"📍 Singapore",
+title:"Day 7",
+text:"7일차 내용을 작성하세요.",
+photos:[
+"day7_1.jpg"
+]
+},
+
+day8:{
+date:"2026 / 07 / 28",
+location:"📍 Singapore",
+title:"Day 8",
+text:"8일차 내용을 작성하세요.",
+photos:[
+"day8_1.jpg"
+]
+}
+
+};
+
+let currentDay = "day1";
+let currentPhoto = 0;
+
+function render(){
+
+const data = diaryData[currentDay];
+
+document.getElementById("date").innerText =
+data.date;
+
+document.getElementById("location").innerText =
+data.location;
+
+document.getElementById("mainPhoto").src =
+data.photos[currentPhoto];
+
+document.getElementById("content").innerHTML =
+`
+<h2>${data.title}</h2>
+<br>
+${data.text}
+`;
+
+}
+
+function changeDay(day){
+
+currentDay = day;
+currentPhoto = 0;
+
+render();
+
+}
+
+function nextPhoto(){
+
+const photos =
+diaryData[currentDay].photos;
+
+if(currentPhoto < photos.length - 1){
+
+currentPhoto++;
+
+render();
+
+}
+
+}
+
+function prevPhoto(){
+
+if(currentPhoto > 0){
+
+currentPhoto--;
+
+render();
+
+}
+
+}
+
+render();
+
+</script>
 </body>
 </html>
